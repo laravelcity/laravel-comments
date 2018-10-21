@@ -75,6 +75,22 @@ for example added commentable for post model :
 
 ## how to use Comments
 
+#### define comment method through dependency injection
+
+```
+    protected $comment;
+    
+     public function __construct()
+     {
+         $this->comment=Comment::start();
+         
+         //or
+         
+         $this->comment=Comment::start(CustomComment::class); //set custom model for comments
+     }
+    
+```
+
 #### insert comment
 
 ```
@@ -91,6 +107,24 @@ for example added commentable for post model :
 ```
    public function show($id){
         $comment=$this->comment->find($id);
+        .
+        .
+        .
+    }
+    
+```
+
+#### get all comments
+```
+   public function index(){
+        //return all comments
+        $comments=$this->comment->all();
+        
+        // or
+      
+        //return user comments
+        $comments=auth()->user()->comments()->paginate();
+
         .
         .
         .
@@ -181,7 +215,7 @@ and now use the following:
 ```
   public function __construct()
     {
-        $this->comment=Comment::setCommentModel(CustomComment::class); //set custom model for comment facade
+        $this->comment=Comment::start(CustomComment::class); //set custom model for comment facade
     }
 ```
 
