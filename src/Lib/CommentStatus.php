@@ -12,9 +12,9 @@ class CommentStatus extends Enum
     function translations ()
     {
         return [
-            self::pending => trans('Comments::comment.status.pending.title') ,
-            self::accepted => trans('Comments::comment.status.accepted.title') ,
-            self::rejected => trans('Comments::comment.status.rejected.title') ,
+            self::pending => trans('Comments::comment.status.pending') ,
+            self::accepted => trans('Comments::comment.status.accepted') ,
+            self::rejected => trans('Comments::comment.status.rejected') ,
         ];
     }
 

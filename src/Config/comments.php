@@ -16,4 +16,18 @@ return [
 
     'depth' => 3 ,
 
+    // set attribute for comment status
+
+    'status' => [
+        'pending' => [
+            'class' => 'label label-warning' ,
+        ] ,
+        'accepted' => [
+            'class' => 'label label-success' ,
+        ] ,
+        'rejected' => [
+            'class' => 'label label-danger' ,
+        ] ,
+    ]
+
 ];
