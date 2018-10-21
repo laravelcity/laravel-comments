@@ -43,35 +43,35 @@ Now you can customize your config in file `config/comments.php`
 
 #### STEP4:
 
-``
+```
     php artisan migrate
-``
+```
 
 #### STEP5:
 
 please add `Laravelcity\Comments\Models\CanComment` to `user` model :
 
-``
+```
     class User extends Authenticatable
     {
         use CanComment;
         .
         .
         .
-``
+```
 
 #### STEP6:
 
 please add `Laravelcity\Comments\Models\Commentable` to Any models that you want to launch for it comments system.
 
 
-for example added commentable for posts : 
+for example added commentable for post model : 
 
-``
+```
     class Post extends Model
     {
         use Commentable;
-``
+```
 
 ## how to use Comments
 
@@ -80,9 +80,9 @@ for example added commentable for posts :
 ```
    auth()->user()->comment(
             $model, //for example => App\Models\Posts
-            $commentRequest->get('content'),
-            $commentRequest->get('parent'),
-            $status // default is pending
+            $request->get('content'),
+            $request->get('parent'),
+            $status // default is pending but change to 'accepted','rejected','pending'
     );
     
 ```
@@ -134,7 +134,7 @@ for example added commentable for posts :
     }
 ```
 
-`$this->comment->runActions();` It has three operators
+`$this->comment->runActions();` It has four operators
 
 - destroy
 - delete
@@ -151,8 +151,11 @@ To run these methods, send the following parameters
  
 - **selection** 
  
-    This is a parameter to save selected categories to execute operations on them
+    This is a parameter to save selected comments to execute operations on them
     parametr is array,for example => [2,5,8,9]
+    
+    
+**notes:** for run status action must send status value with `value` input and with one of variables => **'accepted','rejected','pending'** 
 
 ## set new model for Comments  
 
