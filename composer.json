@@ -1,0 +1,30 @@
+{
+    "name": "laravelcity/laravel-comments",
+    "description": "This is a package for managing comments",
+    "keywords": [
+        "laravelcity",
+        "laravel-comments",
+        "comments",
+        "comment",
+        "cms",
+        "laravel"
+    ],
+    "homepage": "https://github.com/laravelcity/laravel-comments",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "saeid hooshyar",
+            "email": "saeedhooshyar70.com",
+            "homepage": "https://saeidhooshyar.ir",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laravelcity\\Comments\\": "src/"
+        }
+    },
+    "require": {
+        "myclabs/php-enum": "^1.5"
+    }
+}
