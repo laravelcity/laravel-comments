@@ -18,9 +18,13 @@ class Repository
      * @param $model
      * @return $this
      */
-    public function setCommentModel ($model)
+    public function start ($model=null)
     {
-        $this->comment = app()->make($model);
+        if($model)
+            $this->comment = app()->make($model);
+        else
+            $this->comment = new Comments();
+
         return $this;
     }
 
